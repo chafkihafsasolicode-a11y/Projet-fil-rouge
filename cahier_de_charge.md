@@ -56,10 +56,10 @@ La Landing Page intègre un catalogue dynamique développé pour offrir une exp�
 
 ### 4. Acteurs du Système
 
-* 1. L'Administrateur (Gestionnaire de l'Agence) : Possède un accès total au panneau de contrôle arrière (Back-office). Il gère le parc automobile, modifie la disponibilité des voitures et valide ou rejette les demandes de location après confirmation externe.
+*  L'Administrateur (Gestionnaire de l'Agence) : Possède un accès total au panneau de contrôle arrière (Back-office). Il gère le parc automobile, modifie la disponibilité des voitures et valide ou rejette les demandes de location après confirmation externe.
 
 
-* 2. Le Client (Utilisateur Final) : Navigue sur le site, utilise le filtre JavaScript pour trouver un véhicule adapté (selon la boîte et le carburant), soumet ses dates de voyage, effectue sa demande de réservation et consulte l'état d'avancement de ses dossiers depuis son espace personnel.
+*  Le Client (Utilisateur Final) : Navigue sur le site, utilise le filtre JavaScript pour trouver un véhicule adapté (selon la boîte et le carburant), soumet ses dates de voyage, effectue sa demande de réservation et consulte l'état d'avancement de ses dossiers depuis son espace personnel.
 
 
 
