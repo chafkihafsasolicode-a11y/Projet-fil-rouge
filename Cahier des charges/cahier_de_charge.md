@@ -96,9 +96,7 @@ Soumet ses dates de voyage, effectue sa demande de réservation et consulte l’
 **Charte graphique**
 **Logo**
 Le logo a été conçu pour refléter le dynamisme et la fluidité de l'application de location EasyCar. Il représente :
-
 ![logo](Logo.png)
-
 Une silhouette de voiture de sport profilée en bleu marine, évoquant la performance, le professionnalisme et la sécurité de la flotte.
 
 Des arcs de cercle dynamiques en rouge accent entourant le véhicule, symbolisant la rapidité du service, la fluidité du processus et la mobilité.
