@@ -1,0 +1,1 @@
+https://www.figma.com/design/e5pvBuOpoDfIFTSMPT0jDU/easy-mobile?node-id=0-1&t=AAJoWmEKHFJQeHlz-1
