@@ -23,7 +23,7 @@ CREATE TABLE Reservation (
     id_reservation INT AUTO_INCREMENT PRIMARY KEY,
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL,
-    statut_reservation ENUM('En attente', 'Confirmée', 'Annulée') NOT NULL DEFAULT 'En attente'
+    statut_reservation ENUM('En attente', 'Confirmée', 'Annulée') NOT NULL DEFAULT 'En attente',
     id_utilisateur INT NOT NULL,
     id_voiture INT NOT NULL,
     FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur) ,
