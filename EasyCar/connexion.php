@@ -1,40 +1,48 @@
 <?php
+// Démarrage de la session pour pouvoir stocker les données de l'utilisateur connecté
 session_start();
-
+// Inclusion du fichier de configuration pour se connecter à la base de données
 require 'config.php';
+// Vérification si le formulaire a été soumis via la méthode POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+  // Récupération des données saisies par l'utilisateur
   $email = $_POST['email'];
   $password = $_POST['password'];
+  // Vérification si l'un des deux champs est vide
   if(empty($_POST['email']) || empty($_POST['password'])){
     echo "Remplissez tout les champs";
     } else {
-      $sql = "SELECT * FROM Utilisateur WHERE email = :email";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([
-                'email' => $email
-            ]);
-            $user = $stmt->fetchAll(PDO :: FETCH_ASSOC);
+      // Préparation de la requête SQL pour chercher l'utilisateur par son email (qui est UNIQUE)
+        $sql = "SELECT * FROM Utilisateur WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        // Exécution de la requête avec l'email sécurisé contre les injections SQL
+        $stmt->execute(['email' => $email]);
+        // Récupération des données de l'utilisateur sous forme de tableau associatif
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Si l'utilisateur existe dans la base de données
             if($user){
-                foreach($user as $u){
-                    if($u['mot_de_passe'] !== $password){
+              // Vérification si le mot de passe saisi correspond à celui stocké en base de données
+                    if($user['mot_de_passe'] !== $password){
                         echo "Password incorrect!!";
                     }else{
-                        // Successful login: set session data
+// Connexion réussie : enregistrement des informations de l'utilisateur en session                        
                         $_SESSION['user'] =[
-                            'id' => $u['id_utilisateur'],
-                            'name' => $u['nom'],
-                            'email' => $u['email']
+                            'id' => $user['id_utilisateur'],
+                            'name' => $user['nom'],
+                            'email' => $user['email']
                         ];
+                        // Redirection automatique vers la page des catégories après connexion
                         header('Location: category.php');
-                        exit;
+                        exit;// Interruption du script pour valider la redirection
                   }
 
-                }
-            }else{
+                }else{
+                  // Message d'erreur si l'email n'existe pas du tout dans la table
               echo "Email introuvable";
             }
-      }
+            }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,17 +50,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style_con.css">
+    <link rel="stylesheet" href="Style CSS/style_con.css">
 </head>
 <body>
     <header>
-        <img src="Logo.png" alt="EasyCar">
+        <img src="assets/Logo.png" alt="EasyCar">
         <nav>
-              <a href="accueil.php">Accueil</a>
-              <a href="category.php">Nos voitures</a>
-              <a href="connexion.php">Connexion</a>
-              <button>Reserver  Maintenant</button>
-          </nav>
+            <a href="accueil.php">Accueil</a>
+            <a href="category.php">Nos voitures</a>
+            <a href="connexion.php">Connexion</a>
+            <a href="category.php" class="reserve">Reserver  Maintenant</a>
+        </nav>
     </header>
   <!-- FORM CARD -->
   <main>
@@ -75,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
           <input type="password" id="mdp" name="password"/>
         </div>
 
-        <button type="submit" class="btn-submit">S'inscrire</button>
+        <button type="submit" class="btn-submit">Se connecter</button>
 
         <div class="form-footer">
           <a href="inscrire.php">Pas encore de compte ? s’inscrire</a>
@@ -95,9 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       <div class="footer-col">
         <h3>Liens Rapides</h3>
         <ul>
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#">Nos Voitures</a></li>
-          <li><a href="#">Connexion</a></li>
+          <li><a href="accueil.php">Accueil</a></li>
+          <li><a href="category.php">Nos Voitures</a></li>
+          <li><a href="connexion.php">Connexion</a></li>
         </ul>
       </div>
 

@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1a2340;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ══════════════════════════════
+   HEADER / NAV  →  devient sidebar
+══════════════════════════════ */
+header {
+    width: 180px;
+    background: #1a2340;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 32px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 28px;
+}
+
+/* Premier lien = bouton Retour rouge */
+header nav a:first-child {
+    background: #e02020;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 7px;
+    padding: 9px 0;
+    font-size: 13px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    transition: background 0.15s;
+    display: block;
+}
+header nav a:first-child:hover { background: #c01818; }
+
+/* Avatar fictif (initiales) affiché via ::before du 2e lien */
+header nav a:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+header nav a:nth-child(2)::before {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12)
+        url("../images/avatar.png") center/cover no-repeat;
+    border: 3px solid rgba(255,255,255,0.18);
+}
+
+/* Lien Dashboard admin (si présent) */
+header nav a:nth-child(3) {
+    color: rgba(255,255,255,0.55);
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+header nav a:nth-child(3):hover { color: #fff; }
+
+/* ══════════════════════════════
+   MAIN
+══════════════════════════════ */
+main {
+    margin-left: 180px;
+    flex: 1;
+    padding: 36px 44px 60px;
+    max-width: 860px;
+}
+
+/* "Mon Profil - EasyCar" → caché, remplacé visuellement par h1 */
+main > h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a2340;
+    margin-bottom: 4px;
+}
+
+/* Lien retour catalogue → affiché en haut à droite comme "Déconnexion" */
+main > p {
+    text-align: right;
+    margin-top: -38px;
+    margin-bottom: 28px;
+}
+
+main > p a {
+    font-size: 13px;
+    color: #1a2340;
+    text-decoration: underline;
+}
+main > p a:hover { color: #e02020; }
+
+/* ══════════════════════════════
+   SECTION INFOS PERSONNELLES
+══════════════════════════════ */
+section {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e8ecf0;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+}
+
+section h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a2340;
+    margin-bottom: 20px;
+}
+
+/* Liste infos → grille 2 colonnes */
+section ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+section ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+section ul li strong {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #a0a5b0;
+}
+
+section ul li::after {
+    content: attr(data-value);
+}
+
+/* Valeur dans chaque li — on stylise le texte après le strong */
+section ul li {
+    background: #f7f8fa;
+    border: 1px solid #e8ecf0;
+    border-radius: 7px;
+    padding: 9px 13px;
+    font-size: 13px;
+    color: #1a2340;
+}
+
+section ul li strong {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 2px;
+    display: block;
+}
+
+hr {
+    display: none;
+}
+
+/* ══════════════════════════════
+   SECTION RÉSERVATIONS
+══════════════════════════════ */
+section:last-of-type {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+section:last-of-type h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a2340;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+/* Message vide */
+section:last-of-type > p {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e8ecf0;
+    padding: 40px;
+    text-align: center;
+    font-size: 13px;
+    color: #a0a5b0;
+}
+
+section:last-of-type > p a {
+    color: #e02020;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ══════════════════════════════
+   TABLE RÉSERVATIONS
+══════════════════════════════ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e8ecf0;
+    font-size: 13px;
+}
+
+table thead tr {
+    background: #f7f8fa;
+    border-bottom: 1px solid #e8ecf0;
+}
+
+table thead th {
+    padding: 12px 16px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #a0a5b0;
+    text-align: left;
+    border: none;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #f0f1f3;
+    transition: background 0.15s;
+}
+
+table tbody tr:last-child { border-bottom: none; }
+
+table tbody tr:hover { background: #fafbfc; }
+
+table tbody td {
+    padding: 14px 16px;
+    color: #1a2340;
+    border: none;
+    vertical-align: middle;
+}
+
+/* Statut — badge coloré */
+table tbody td:last-child strong {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #f1f3f5;
+    color: #64748b;
+}
+
+/* Prix total */
+table tbody td strong {
+    font-weight: 700;
+    color: #1a2340;
+}
+
+/* Référence */
+table tbody td:first-child {
+    font-weight: 600;
+    color: #e02020;
+}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer {
+    background: #1a2340;
+    color: rgba(255,255,255,0.7);
+    margin-left: 180px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 40px;
+    padding: 48px 44px 32px;
+}
+
+.footer-brand h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.footer-brand h2 span { color: #e02020; }
+
+.footer-brand p {
+    font-size: 13px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.5);
+}
+
+.footer-col h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 9px; }
+.footer-col ul li a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.15s;
+}
+.footer-col ul li a:hover { color: #e02020; }
+
+.footer-contact p {
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+}
+
+.social-icons { display: flex; gap: 8px; margin-top: 12px; }
+
+.social-icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #fff;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.social-icon:hover { background: rgba(255,255,255,0.2); }
+.social-icon.fb { background: #1877f2; }
+.social-icon.wa { background: #25d366; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 16px 44px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+}

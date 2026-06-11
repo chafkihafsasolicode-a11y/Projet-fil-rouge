@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1a2340;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+/* ══ TITRE ══ */
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a2340;
+    margin-bottom: 20px;
+}
+
+/* ══ BOUTON RETOUR ══ */
+div[style*="margin-bottom: 20px"] a {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px !important;
+    background: #1a2340 !important;
+    color: #fff !important;
+    border-radius: 7px !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+div[style*="margin-bottom: 20px"] a:hover {
+    background: #e02020 !important;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e8ecf0;
+    margin-bottom: 28px;
+}
+
+/* ══ FORMULAIRE ══ */
+form {
+    background: #fff;
+    border: 1px solid #e8ecf0;
+    border-radius: 14px;
+    padding: 32px 36px;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+}
+
+/* Labels */
+form label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #a0a5b0;
+    margin-bottom: 5px;
+    margin-top: 16px;
+}
+
+form label:first-child { margin-top: 0; }
+
+/* Inputs et selects */
+form input[type="text"],
+form input[type="number"],
+form select {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 13px;
+    color: #1a2340;
+    background: #f7f8fa;
+    border: 1.5px solid #e8ecf0;
+    border-radius: 7px;
+    padding: 10px 13px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 0;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus {
+    border-color: #1a2340;
+    box-shadow: 0 0 0 3px rgba(26,35,64,0.07);
+    background: #fff;
+}
+
+/* Les <br> sont dans le code mais on force le grid */
+form br { display: none; }
+
+/* Bouton submit — pleine largeur sur 2 colonnes */
+form button[type="submit"] {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    width: 100%;
+    padding: 12px 0 !important;
+    background: #E53E3E !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+form button[type="submit"]:hover {
+    background: #c53030 !important;
+}

@@ -1,0 +1,431 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+header img {
+    height: 80px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #E53E3E;
+}
+
+nav .reserve {
+    background-color: #E53E3E;
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+nav .reserve:hover{
+  background-color: #c53030;
+}
+/* ── MAIN ────────────────────────────────────────── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+ 
+  /* Use CSS grid to lay out children */
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 24px;
+  align-items: start;
+}
+.alert-success {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  border-left: 4px solid #2e7d32;
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1b5e20;
+}
+
+.alert-success svg {
+  flex-shrink: 0;
+  color: #2e7d32;
+}
+
+.alert-success a {
+  margin-left: auto;
+  color: #1a2340;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.alert-success a:hover {
+  color: #e02020;
+}
+/* Alert erreur */
+.alert-error {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: #fff0f0;
+  border: 1px solid #ffb3b3;
+  border-left: 4px solid #e02020;
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #b91c1c;
+  box-sizing: border-box;
+}
+
+.alert-error svg {
+  flex-shrink: 0;
+  color: #e02020;
+}
+
+/* Bouton désactivé */
+.btn-reserver.btn-disabled {
+  background: #d0d5de;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-reserver.btn-disabled:hover {
+  background: #d0d5de;
+}
+/* ── RETOUR BUTTON — row 1, spans both columns ───── */
+main > .btn {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: start;
+  margin-bottom: 10px;
+ 
+  display: inline-block;
+  background: #e8192c;
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+main > .btn:hover { background: #c41222; }
+ 
+/* ── CARD — row 2, column 1 ──────────────────────── */
+main > .card {
+  grid-column: 1;
+  grid-row: 2;
+ 
+  background: #1a2a50;
+  border-radius: 14px;
+  padding: 14px;
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(0,0,0,.22);
+  max-width: unset;
+}
+ 
+.card > img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 12px;
+}
+ 
+.card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+ 
+/* All <p> tags inside card = small badge style */
+.card > p {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: #a8b8d8;
+  background: rgba(255,255,255,.09);
+  padding: 3px 8px;
+  border-radius: 20px;
+  margin: 0 4px 6px 0;
+}
+ 
+/* First <p> = price — full width, bigger */
+.card > p:first-of-type {
+  display: block;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+ 
+.card > a { display: none; }
+ 
+
+/* Badges infos */
+.card-badges {
+  display: flex;
+  gap: 6px;
+  padding: 0 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #f5f6f8;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.card-badge svg {
+  width: 13px;
+  height: 13px;
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+
+/* ── RESERVATION FORM — row 2, column 2 ─────────── */
+main > .reservation-form {
+  grid-column: 2;
+  grid-row: 2;
+ 
+  background: #1a2a50;
+  border-radius: 14px;
+  padding: 22px 24px 26px;
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(0,0,0,.22);
+}
+ 
+.reservation-form h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+}
+ 
+/* Form: 2-column grid so date-time blocks sit side by side */
+.reservation-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 10px;
+  align-items: start;
+}
+ 
+/* "Lieu de départ" label */
+.reservation-form form > label:first-of-type {
+  grid-column: 1 / -1;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: #8899bb;
+}
+ 
+/* Lieu select — full width */
+.reservation-form form > select {
+  grid-column: 1 / -1;
+  appearance: none;
+  background: #111827;
+  border: 1px solid #2e4070;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  outline: none;
+  cursor: pointer;
+  padding-right: 32px;
+}
+ 
+/* Date-time blocks: each spans 1 column */
+.date-time {
+  grid-column: span 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: start;
+}
+ 
+.date-time label {
+  grid-column: 1 / -1;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: #8899bb;
+  margin-bottom: 2px;
+}
+ 
+.date-time input[type="date"],
+.date-time input[type="time"] {
+  width: 100%;
+  background: #111827;
+  border: 1px solid #2e4070;
+  color: #fff;
+  padding: 9px 8px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  outline: none;
+  transition: border-color .2s;
+}
+.date-time input:focus { border-color: #e8192c; }
+ 
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+ 
+/* Reserver button */
+.btn-reserver {
+  grid-column: 1 / -1;
+  display: block;
+  width: 160px;
+  margin: 10px auto 0;
+  background: #e8192c;
+  color: #fff;
+  border: none;
+  padding: 13px 0;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn-reserver:hover  { background: #c41222; transform: translateY(-1px); }
+.btn-reserver:active { transform: translateY(0); }
+ 
+
+/* ── FOOTER ─────────────────────────────────────── */
+footer {
+  background: #0d1b3e;
+  color: #8e9ab8;
+  padding: 36px 60px 20px;
+}
+ 
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.4fr;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+ 
+.footer-brand h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.footer-brand h2 span { color: #e8192c; }
+.footer-brand p {
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: #F2F4F6;
+}
+ 
+.footer-col h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e8192c;
+  margin-bottom: 12px;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 7px; }
+.footer-col ul li a {
+  font-size: 0.75rem;
+  color: #F2F4F6;
+  text-decoration: none;
+  transition: color .2s;
+}
+ 
+.footer-contact p {
+    color: #F2F4F6;
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+  line-height: 1.6;
+}
+ 
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+.social-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.social-icon.fb { background: #1877f2; }
+.social-icon.wa { background: #25d366; }
+.social-icon:hover { opacity: .85; }
+.footer-col ul li a:hover { color: var(--red); }
+.footer-bottom {
+  border-top: 1px solid #1e2d55;
+  padding-top: 16px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #F2F4F6;
+}

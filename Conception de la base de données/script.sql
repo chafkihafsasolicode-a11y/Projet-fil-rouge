@@ -19,6 +19,7 @@ CREATE TABLE Voiture (
     tarif_journalier DECIMAL(10,2) NOT NULL,
     disponibilite VARCHAR(20) NOT NULL DEFAULT 'disponible',
     image VARCHAR(255),
+    categorie VARCHAR(30),
     annee INT NOT NULL
 ) ;
 

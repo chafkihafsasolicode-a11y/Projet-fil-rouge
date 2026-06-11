@@ -52,25 +52,26 @@ nav a {
 }
 
 nav a:hover {
-    color: #fff;
+    color: #E53E3E;
 }
 
-nav button {
-    background-color: #e63946;
-    color: #fff;
+nav .reserve {
+    background-color: #E53E3E;
+    color: #ffffff;
     border: none;
-    padding: 9px 20px;
-    border-radius: 5px;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    letter-spacing: 0.3px;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
 }
-
-nav button:hover {
-    background-color: #c1121f;
-    transform: translateY(-1px);
+nav .reserve:hover{
+  background-color: #c53030;
+  transform: translateY(-1px);
+  color: #fff;
 }
 
 main {
@@ -216,12 +217,41 @@ main > div p {
     flex-shrink: 0;
 }
  
+/* Badges infos */
+.card-badges {
+    display: flex;
+    gap: 6px;
+    padding: 0 16px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f5f6f8;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.card-badge svg {
+    width: 13px;
+    height: 13px;
+    opacity: 0.65;
+    flex-shrink: 0;
+}
+
 .card a {
     display: block;
     margin-top: 14px;
     text-align: center;
-    background-color: #1A2B49;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #1A2B49;
+    border: 1px solid #1A2B49;
     text-decoration: none;
     padding: 9px 0;
     border-radius: 6px;
@@ -274,8 +304,7 @@ footer {
   text-decoration: none;
   transition: color .2s;
 }
-.footer-col ul li a:hover { color: #F2F4F6; }
- 
+.footer-col ul li a:hover { color: var(--red); } 
 .footer-contact p {
     color: #F2F4F6;
   font-size: 0.75rem;
