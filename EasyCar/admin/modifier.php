@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['modifier_voiture'])) {
         'id' => $id_voiture
     ]);
 
-// Redirection automatique vers l'espace admin.php immédiatement après l'enregistrement    header("Location: admin.php");
+// Redirection automatique vers l'espace admin.php immédiatement après l'enregistrement    
+    header("Location: admin.php");
     exit();
 }
 ?>
