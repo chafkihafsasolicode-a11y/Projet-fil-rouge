@@ -380,6 +380,26 @@ function closeModal() { document.getElementById('modalOverlay').classList.remove
 document.getElementById('modalOverlay').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
 });
+    const performanceData = {
+    'Dernier semaine': [35, 45, 55, 42, 100, 60, 30],
+    'Ce mois':         [60, 70, 50, 80, 90, 40, 55]
+};
+
+function renderChart(dataset) {
+    const bars = document.querySelectorAll('#barChart .bar');
+    bars.forEach((bar, i) => {
+        bar.style.height = dataset[i] + '%';
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const select = document.querySelector('.panel select');
+    select.addEventListener('change', function () {
+        const data = performanceData[this.value];
+        if (data) renderChart(data);
+    });
+});
 </script>
 
 </body>
