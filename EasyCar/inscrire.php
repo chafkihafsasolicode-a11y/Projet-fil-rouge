@@ -1,8 +1,7 @@
 <?php
-// Démarrage de la session pour conserver l'état de l'utilisateur si nécessaire
-session_start();
 // Inclusion du fichier de configuration pour la connexion à la base de données via PDO
 require 'config.php';
+$errors = [];
 // Vérification si le formulaire a été soumis via la méthode POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   // Récupération des données envoyées par le formulaire d'inscription
@@ -79,7 +78,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <h1><span>Easy</span>Car</h1>
       </div>
       <p class="card-subtitle">Bonjour à nous!</p>
-
+      <?php if (!empty($errors)): ?>
+          <div class="error-box">
+              <ul>
+                  <?php foreach ($errors as $error): ?>
+                      <li><?php echo htmlspecialchars($error); ?></li>
+                  <?php endforeach; ?>
+              </ul>
+          </div>
       <form method="POST" action="">
           <div class="form-group">
               <label for="nom">Nom</label>
