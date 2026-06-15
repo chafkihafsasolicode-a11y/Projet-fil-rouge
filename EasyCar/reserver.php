@@ -59,11 +59,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
       // ← AJOUT : Double vérification de sécurité au moment de la soumission pour éviter les conflits
       $sql_check2 = "SELECT COUNT(*) FROM Reservation 
-                     WHERE id_voiture = :id 
-                     AND statut_reservation != 'Annulée'
-                     AND date_fin >= CURDATE()";
+               WHERE id_voiture = :id 
+               AND statut_reservation != 'Annulée'
+               AND (:date_depart < date_fin AND :date_retour > date_debut)";
       $stmt_check2 = $pdo->prepare($sql_check2);
-      $stmt_check2->execute(['id' => $voiture_id]);
+      $stmt_check2->execute([
+          'id'           => $voiture_id,
+          'date_depart'  => $date_depart,
+          'date_retour'  => $date_retour
+      ]);
       $already_taken = $stmt_check2->fetchColumn() > 0;
   // Si la voiture a été réservée entre-temps par un autre utilisateur
       if ($already_taken) {

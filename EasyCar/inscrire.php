@@ -86,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                   <?php endforeach; ?>
               </ul>
           </div>
+          <?php endif; ?>
       <form method="POST" action="">
           <div class="form-group">
               <label for="nom">Nom</label>
